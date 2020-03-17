@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh">
+    <link rel="stylesheet" href="../css/bootstraps.min.css">
+    
+</head>
+<body style="background-color:rgb(52, 52, 56); color:white;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Memory in CPU</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col"></th>
+                        <th scope="col">State</th>
+                      </tr>
+                    </thead>
+                    <tbody id="zer">
+                        <tr id="">
+                            
+
+
+                        </tr>
+                        
+                        
+                    </tbody>
+                  </table>
+
+            </div>
+            <div class="col-md-1"></div>
+
+              
+              
+              
+            </div>
+                  <div class="text-center">
+                    <a href="../views/index.html" class="btn btn-outline-info">Index</a>
+                </div>
+    </div>
+</body>
+
+
+<script>
+const si = require('systeminformation');
+setInterval(() => {
+    si.processes().then((data) => {
+   let c = data.list
+    console.log(data);
+        for(let i =0;i<c.length;i++){
+            let nameList = '<tr><td>'+c[i].name+'</td>';
+            let pidList = '<td>'+c[i].pid+'</td>';
+            let memList = '<td>'+c[i].pcpu+'</td>';
+            let priList = '<td>'+c[i].priority+'</td>';
+            let fecList = '<td>'+c[i].started+'</td>';
+            let staList = '<td>'+c[i].state+'</td></tr>';
+            document.getElementById('zer').innerHTML += nameList += pidList +=memList += priList +=fecList +=staList ;
+            
+
+        }
+    });
+   
+    
+}, 8000);
+
+                setInterval(() => {
+                    document.getElementById('zer').innerHTML = "" ;
+                }, 8000);
+
+                
+                    
+               
+                    
+               
+
+
+
+</script>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" ></script>
+
+
+</html>

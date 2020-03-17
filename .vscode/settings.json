@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "C:\\Users\\Administrador\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+    "code-runner.executorMap": 
+    { 
+        "python": "$pythonPath -u $fullFileName" 
+    }
+}
